@@ -62,9 +62,13 @@ def plot_pi(data, labels, title) -> None:
     plt.show()    
 def figure_att(fig, title, titlex, titley, size, sizexy, weight)-> None:
     fig.set_title(title, size=size, weight=weight)
-    figure.set_xlabel(titlex, size=sizexy, weight=weight)
-    figure.set_ylabel(titley, size=sizexy, weight=weight)           
-
+    fig.set_xlabel(titlex, size=sizexy, weight=weight)
+    fig.set_ylabel(titley, size=sizexy, weight=weight)           
+def get_value(fig):
+    for p in fig.patches:
+        fig.annotate(format(p.get_height()), (p.get_x() + p.get_width() / 2.,
+                                                     p.get_height()), ha='center', va='center',
+                            xytext=(0, 10), textcoords='offset points')
 
 # In[ ]:
 
